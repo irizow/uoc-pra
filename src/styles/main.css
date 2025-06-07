@@ -6,6 +6,7 @@
   --grey-color: grey;
   --light-color: #bfbfbf;
   --font-family: 'Lexend Deca', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --height: calc(100dvh - 20px);
   font-family: var(--font-family);
   line-height: 1.5;
   font-weight: 400;
@@ -38,7 +39,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #f0f0f0;
-  height: calc(100dvh - 20px);
+  height: var(--height);
 }
 
 #app {

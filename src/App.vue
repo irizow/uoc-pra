@@ -1,14 +1,21 @@
 <script setup>
 import navBar from './components/components/NavBar.vue'
-import Header from './components/components/Header.vue'
+import AppHeader from './components/components/AppHeader.vue'
 </script>
 
 <template>
   <main class="main">
-    <Header />
+    <AppHeader />
     <router-view />
     <navBar />
   </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: var(--height);
+}
+</style>

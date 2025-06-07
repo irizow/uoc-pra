@@ -22,9 +22,6 @@ const route = useRoute()
   height: 8vh;
   justify-content: center;
   width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
   box-shadow:
     -1px -1px 5px rgba(0, 0, 0, 0.1),
     1px 1px 5px rgba(0, 0, 0, 0.1);
