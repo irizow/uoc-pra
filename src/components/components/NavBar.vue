@@ -1,11 +1,15 @@
 <template>
     <nav class="nav-bar">
-<div>
+<router-link to='/' :class="{ active: route.path === '/' }">
 🏠︎
-</div>
-<div>🗣</div>
+</router-link>
+<router-link to="/login" :class="{active: route.path === '/login'}">🗣</router-link>
 </nav>
 </template>
+<script setup>
+import {useRoute} from 'vue-router'
+const route = useRoute()
+</script>
 <style scoped>
 .nav-bar {
     display: flex;
@@ -18,7 +22,7 @@
       box-shadow: -1px -1px 5px rgba(0, 0, 0, 0.1), 1px 1px 5px rgba(0, 0, 0, 0.1);
     border-radius: 0px 0px 20px 20px;
 }
-.nav-bar div {
+.nav-bar a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,5 +30,15 @@
     height: 100%;
     font-size: 2rem;
     cursor: pointer;
+    color: gray;
+    transition: color 200ms ease-in-out;
+}
+
+.nav-bar a:hover {
+    color: rgba(101, 101, 255, 0.655);
+}
+
+.nav-bar a.active {
+    color: rgb(101, 101, 255)
 }
 </style>
