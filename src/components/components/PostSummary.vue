@@ -1,16 +1,20 @@
 <template>
   <div class="post-summary">
-    <img :src="'https://xsgames.co/randomusers/avatar.php?g=male'" />
     <div>
-      <strong>{{ fullName }}</strong>
-      <span>{{ username }}</span>
+      <router-link :to="{ path: '/user', query: { username: username } }">
+        <img :src="profileImg" />
+        <div class="post-user-data">
+          <strong>{{ fullName }}</strong>
+          <span>@{{ username }}</span>
+        </div>
+      </router-link>
     </div>
-    <div>
+    <div class="post-info">
       <p>{{ message }}</p>
       <span>{{ publishDate }}</span>
       <div class="icon-box">
-        <span>❤ {{ likes }}</span>
-        <span>💬 {{ comments }}</span>
+        <p>❤ {{ likes }}</p>
+        <p>💬 {{ comments }}</p>
       </div>
     </div>
   </div>
@@ -22,7 +26,7 @@ defineProps({
   fullName: String,
   username: String,
   message: String,
-  publishDate: Date,
+  publishDate: String,
   likes: Number,
   comments: Number,
 })
@@ -30,27 +34,37 @@ defineProps({
 
 <style scoped>
 .post-summary {
-  display: grid;
-  grid-template-columns: 1fr 6fr;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   gap: 0.4rem;
   border-bottom: 1px solid grey;
   padding: 1rem;
+}
+
+.post-summary div {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.post-summary span {
+  color: grey;
+  font-size: 0.9rem;
 }
 
 .post-summary img {
   width: 3rem;
   border-radius: 100%;
 }
-.post-summary div {
-  display: flex;
+
+.post-summary .post-info,
+.post-user-data {
   flex-direction: column;
   gap: 0.2rem;
 }
-.post-summary div:nth-child(3) {
-  grid-column: 1/3;
-}
-.post-summary .icon-box {
-  margin-top: 0.4rem;
+
+.icon-box {
+  gap: 1rem;
   flex-direction: row;
 }
 </style>

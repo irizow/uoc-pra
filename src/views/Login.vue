@@ -22,7 +22,6 @@ const authStore = useAuthStore()
 const router = useRouter()
 
 async function handleLogin() {
-  console.log('uz n pazz', username.value, password.value)
   try {
     const response = await logIn(username.value, password.value)
     authStore.setUser(response.user, response.token)
@@ -40,15 +39,16 @@ async function handleLogin() {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
-  height: 100%;
+  height: 90vh;
 }
 .login-form input {
   width: 80%;
   background-color: aliceblue;
   border-radius: 5px;
   margin-bottom: 2rem;
+  max-height: 2.5rem;
 }
 .login-form button {
   width: 40%;

@@ -1,9 +1,8 @@
 import axios from 'axios'
+import { BASE_URL } from './posts'
 
-const BASE_URL = 'http://localhost:3000'
 async function logIn(username, password) {
   try {
-    console.log('user and pass', username, password)
     const response = await axios.post(
       `${BASE_URL}/login`,
       { username, password },
